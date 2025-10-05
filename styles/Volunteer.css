@@ -1,0 +1,527 @@
+
+.section-wrapper {
+  padding: 5rem 0;
+  background: var(--background);
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.highlight {
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+}
+
+.activities-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.activity-item {
+  display: flex;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  min-height: 140px;
+}
+
+.activity-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+}
+
+.activity-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.activity-item:hover::before {
+  opacity: 1;
+}
+
+.activity-logo-wrapper {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 0;
+  border: 2px solid var(--primary);
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.activity-item:hover .activity-logo-wrapper {
+  background: rgba(59, 130, 246, 0.2);
+  transform: scale(1.1);
+}
+
+.activity-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.activity-item:hover .activity-logo {
+  transform: scale(1.1);
+}
+
+.activity-details {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  min-width: 0; /* Important for text truncation */
+}
+
+.activity-details h3 {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.activity-item:hover .activity-details h3 {
+  color: var(--primary);
+}
+
+.organization {
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  line-height: 1.3;
+}
+
+.activity-item:hover .organization {
+  color: rgba(59, 130, 246, 0.9);
+}
+
+.activity-description {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.activity-item:hover .activity-description {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Fallback if logos are not available */
+.activity-logo-wrapper::before {
+  content: "🤝";
+  font-size: 2rem;
+  display: none;
+}
+
+.activity-logo-wrapper:has(img[src*="seds-jpura"]):not(:has(img[src]))::before,
+.activity-logo-wrapper:has(img[src*="seds-jpura"]):has(img[src=""])::before {
+  content: "🚀";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+
+.activity-logo-wrapper:has(img[src*="seds-srilanka"]):not(:has(img[src]))::before,
+.activity-logo-wrapper:has(img[src*="seds-srilanka"]):has(img[src=""])::before {
+  content: "🌟";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+
+.activity-logo-wrapper:has(img[src*="rotaract"]):not(:has(img[src]))::before,
+.activity-logo-wrapper:has(img[src*="rotaract"]):has(img[src=""])::before {
+  content: "🔄";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+
+.activity-logo-wrapper:has(img[src*="censoc"]):not(:has(img[src]))::before,
+.activity-logo-wrapper:has(img[src*="censoc"]):has(img[src=""])::before {
+  content: "💻";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+
+.activity-logo-wrapper:has(img[src*="astronomy"]):not(:has(img[src]))::before,
+.activity-logo-wrapper:has(img[src*="astronomy"]):has(img[src=""])::before {
+  content: "🔭";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+
+.activity-logo-wrapper:has(img[src*="gavel"]):not(:has(img[src]))::before,
+.activity-logo-wrapper:has(img[src*="gavel"]):has(img[src=""])::before {
+  content: "🎤";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+
+/* Alternative text fallback */
+.activity-logo-wrapper.fallback {
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 50%;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Large tablets */
+@media (max-width: 1024px) {
+  .activities-container {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.2rem;
+    padding: 0 1.5rem;
+  }
+  
+  .activity-item {
+    padding: 1.2rem;
+    gap: 1rem;
+    min-height: 130px;
+  }
+  
+  .activity-logo-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .activity-details h3 {
+    font-size: 1.1rem;
+  }
+  
+  .organization {
+    font-size: 0.85rem;
+  }
+  
+  .activity-description {
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablets and small devices */
+@media (max-width: 768px) {
+  .section-wrapper {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    padding: 0 1rem;
+  }
+  
+  .activities-container {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+  
+  .activity-item {
+    flex-direction: row;
+    text-align: left;
+    padding: 1.2rem;
+    align-items: flex-start;
+    gap: 1rem;
+    min-height: auto;
+  }
+  
+  .activity-logo-wrapper {
+    margin-bottom: 0;
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+  }
+  
+  .activity-details {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .activity-details h3 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+  
+  .organization {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  
+  .activity-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .activities-container {
+    padding: 0 0.8rem;
+    gap: 0.8rem;
+  }
+  
+  .activity-item {
+    padding: 1rem;
+    gap: 0.8rem;
+  }
+  
+  .activity-logo-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .activity-details h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .organization {
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .activity-description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+}
+
+/* Extra small devices (phones under 360px) */
+@media (max-width: 360px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .activities-container {
+    padding: 0 0.5rem;
+    gap: 0.6rem;
+  }
+  
+  .activity-item {
+    padding: 0.8rem;
+    gap: 0.6rem;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .activity-logo-wrapper {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .activity-details h3 {
+    font-size: 0.95rem;
+  }
+  
+  .organization {
+    font-size: 0.75rem;
+  }
+  
+  .activity-description {
+    font-size: 0.75rem;
+  }
+}
+
+/* Very small devices (phones under 320px) */
+@media (max-width: 320px) {
+  .activities-container {
+    padding: 0 0.3rem;
+    gap: 0.5rem;
+  }
+  
+  .activity-item {
+    padding: 0.7rem;
+  }
+  
+  .activity-logo-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .activity-details h3 {
+    font-size: 0.9rem;
+  }
+  
+  .organization {
+    font-size: 0.7rem;
+  }
+  
+  .activity-description {
+    font-size: 0.7rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .activity-item:hover {
+    transform: none;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .activity-item:active {
+    transform: scale(0.98);
+    border-color: var(--primary);
+  }
+  
+  .activity-item:hover .activity-logo-wrapper,
+  .activity-item:hover .activity-logo,
+  .activity-item:hover .activity-details h3,
+  .activity-item:hover .organization,
+  .activity-item:hover .activity-description {
+    transform: none;
+    color: inherit;
+  }
+  
+  .activity-item:active .activity-logo-wrapper {
+    background: rgba(59, 130, 246, 0.2);
+    transform: scale(1.05);
+  }
+  
+  .activity-item:active::before {
+    opacity: 1;
+  }
+}
+
+/* Animation for activity items */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.activity-item {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Ensure text doesn't overflow */
+.activity-details {
+  overflow: hidden;
+}
+
+.activity-details h3,
+.organization,
+.activity-description {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Force hover to work on entire card */
+.activity-item {
+  cursor: pointer;
+}
+
+.activity-item > * {
+  pointer-events: none;
+}
+
+.activity-item a, 
+.activity-item button {
+  pointer-events: auto;
+}

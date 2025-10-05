@@ -1,0 +1,351 @@
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--background);
+  padding-top: 100px; 
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 10s linear infinite;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 2rem;
+  z-index: 1;
+  margin-top: 20px; /* Added margin to push content down more */
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 60%;
+  text-align: left;
+  padding-top: 40px; /* Added padding to create more space from top */
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 35%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 40px; /* Added padding to align with text */
+}
+
+/* Distinct Name Styling */
+.hero-name {
+  font-size: 3.8rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: white;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  margin-top: 20px; /* Added margin to create more space above */
+}
+
+.name-highlight {
+  color: #cbd5e1; /* Light blue-gray */
+  font-weight: 700;
+  font-size: 4.2rem;
+  display: block;
+  margin-top: 0.5rem;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.name-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Circular Profile Image */
+.profile-image-container {
+  width: 380px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+  transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.02);
+}
+
+.text-highlight {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.hero-subtitle {
+  font-size: 1.8rem;
+  margin: 1.5rem 0;
+  color: rgba(255, 255, 255, 0.9);
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.hero-subtitle .typewriter {
+  color: var(--primary);
+  border-right: 2px solid var(--primary);
+  animation: blink 0.7s step-end infinite;
+  padding-right: 4px;
+  font-weight: 600;
+}
+
+.hero-description {
+  margin: 2rem 0;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 90%;
+  font-weight: 400;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 1.2rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+  gap: 0.8rem;
+}
+
+.primary-button {
+  background: var(--primary);
+  color: white;
+  border: 2px solid var(--primary);
+}
+
+.secondary-button {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.primary-button:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.secondary-button:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Animations */
+.animate-fade {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--primary); }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .hero {
+    padding-top: 90px; /* Increased for tablet */
+  }
+  
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 0 1rem;
+    gap: 3rem;
+    margin-top: 10px;
+  }
+  
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+    padding-top: 20px;
+  }
+  
+  .hero-image {
+    max-width: 100%;
+    justify-content: center;
+    padding-top: 20px;
+  }
+  
+  .profile-image-container {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .hero-name {
+    font-size: 3rem;
+    margin-top: 10px;
+  }
+  
+  .name-highlight {
+    font-size: 3.4rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.6rem;
+    justify-content: center;
+  }
+  
+  .hero-description {
+    max-width: 100%;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 80px; /* Increased for mobile */
+  }
+  
+  .hero-name {
+    font-size: 2.5rem;
+    margin-top: 5px;
+  }
+  
+  .name-highlight {
+    font-size: 2.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.4rem;
+    min-height: 2.5rem;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .profile-image-container {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .cta-button {
+    padding: 1rem 1.8rem;
+    font-size: 0.9rem;
+    min-width: 140px;
+    gap: 0.6rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 70px; /* Increased for small mobile */
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .hero-name {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-top: 0;
+  }
+  
+  .name-highlight {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .profile-image-container {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 250px;
+    padding: 0.9rem 1.5rem;
+  }
+}
