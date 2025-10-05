@@ -7,7 +7,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="logo">YourName</div>
+      <div className="logo">Oshadi Palliyaguruge</div>
       <div className={`nav-links ${isOpen ? 'open' : ''}`}>
         <a href="#home" onClick={() => setIsOpen(false)}>Home</a>
          <a href="#about" onClick={() => setIsOpen(false)}>About Me</a>
